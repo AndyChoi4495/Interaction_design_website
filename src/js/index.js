@@ -106,7 +106,7 @@
                 canvasCaption: document.querySelector('.canvas-caption'),
                 canvas: document.querySelector('.image-blend-canvas'),
                 context: document.querySelector('.image-blend-canvas').getContext('2d'),
-                imagesPath: ['./images/blend-image-1.jpg', './images/blend-image-2.jpg'],
+                imagesPath: ['../images/blend-image-1.jpg', '../images/blend-image-2.jpg'],
                 images: [],
             },
             values: {
@@ -125,14 +125,14 @@
         let imgElem;
         for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
             imgElem = new Image();
-            imgElem.src = `./video/pics1/${1 + i}.JPG`;
+            imgElem.src = `../video/pics1/${1 + i}.JPG`;
             sceneInfo[0].objs.videoImages.push(imgElem);
         }
 
         let imgElem2;
         for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
             imgElem2 = new Image();
-            imgElem2.src = `./video/pics2/${1 + i}.JPG`;
+            imgElem2.src = `../video/pics2/${1 + i}.JPG`;
             sceneInfo[2].objs.videoImages.push(imgElem2);
         }
 
@@ -288,10 +288,6 @@
                 break;
 
             case 2:
-                // console.log('2 play');
-                // let sequence2 = Math.round(calcValues(values.imageSequence, currentYOffset));
-                // objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
-
                 if (scrollRatio <= 0.5) {
                     // in
                     objs.canvas.style.opacity = calcValues(values.canvas_opacity_in, currentYOffset);
@@ -445,11 +441,9 @@
 
                 if (scrollRatio < values.rect1X[2].end) {
                     step = 1;
-                    // console.log('캔버스 닿기 전');
                     objs.canvas.classList.remove('sticky');
                 } else {
                     step = 2;
-                    // console.log('캔버스 닿은 후');
                     // 이미지 블렌드
                     // values.blendHeight: [ 0, 0, { start: 0, end: 0 } ]
                     values.blendHeight[0] = 0;
